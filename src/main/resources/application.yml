@@ -1,0 +1,25 @@
+server:
+  port: 28080
+
+#spring:#  security:#    user:#      name: mp
+#      password: "{noop}pwd"  
+
+logging:
+  level:   
+    web: debug 
+    org.springframework.data: info      
+    org.springframework.security.authentication: debug
+    org.springframework.security: debug      
+    
+demo:
+  something: "Jaaa"
+  users:
+    - name: mp
+      password: "{noop}pwd"
+    - name: mp2
+      password: "{noop}bla"
+    - name: mp3
+      password: "{bcrypt}$2a$10$NiLIcUf8B3TRJq6Eps7W0O/iedPiFo18MW9quDY6.MFoREzLhh.1e"
+    - name: spring
+      password: "{noop}secret"
+      
