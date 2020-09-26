@@ -15,7 +15,7 @@ import org.springframework.security.test.context.support.WithUserDetails;
 /*
  *
  * This test used the complete container (including web and whatever else stuff is configured)
- *
+ * Info: the focus in this tests is around Spring-Security @With... annotation.
  */
 @SpringBootTest
 public class TestServiceAccess {
