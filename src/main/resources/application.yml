@@ -19,7 +19,7 @@ demo:
     - name: mp2
       password: "{noop}bla"
     - name: mp3
-      password: "{bcrypt}$2a$10$NiLIcUf8B3TRJq6Eps7W0O/iedPiFo18MW9quDY6.MFoREzLhh.1e"
+      password: "{bcrypt}$2a$10$NiLIcUf8B3TRJq6Eps7W0O/iedPiFo18MW9quDY6.MFoREzLhh.1e" # abc 
     - name: spring
       password: "{noop}secret"
       
