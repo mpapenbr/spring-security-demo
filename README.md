@@ -1,5 +1,5 @@
 # spring-security-demo
-Tests and showcases around spring security
+Tests and showcases around spring security. Some ideas/methods are adapted from [here][1]
 
 About the test-packages:
 - service  
