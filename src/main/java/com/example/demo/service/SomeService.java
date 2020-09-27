@@ -2,9 +2,8 @@ package com.example.demo.service;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-
-import com.example.demo.UserPrincipal;
 
 @Service
 public class SomeService {
@@ -15,8 +14,8 @@ public class SomeService {
 	@PreAuthorize("authenticated")
 	public String getProtectedMessage() {
 		Object p = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if (p instanceof UserPrincipal) {
-			UserPrincipal up = (UserPrincipal) p;
+		if (p instanceof UserDetails) {
+			UserDetails up = (UserDetails) p;
 			return "protected " + up.getUsername();
 		}
 
