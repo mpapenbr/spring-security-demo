@@ -12,9 +12,10 @@ import com.example.demo.model.User;
 @DataJpaTest()
 @TestPropertySource(properties = {
 		"spring.jpa.hibernate.ddl-auto=validate",
-		"spring.liquibase.enabled=true"
+		"spring.liquibase.enabled=true",
+		"spring.liquibase.changelog=classpath:/db/changelog/db.test-init-data.yaml"
 })
-public class TestRepos {
+public class TestReposWithInitData {
 
 	@Autowired
 	private UserRepository userRepo;
@@ -31,7 +32,7 @@ public class TestRepos {
 				.password("{noop}dbpwd")
 				.build();
 		userRepo.save(dbuser);
-		assertEquals(1L, userRepo.count());
+		assertEquals(2L, userRepo.count());
 	}
 
 	@Test
@@ -41,6 +42,6 @@ public class TestRepos {
 				.password("{noop}dbpwd")
 				.build();
 		userRepo.save(dbuser);
-		assertEquals(1L, userRepo.count());
+		assertEquals(2L, userRepo.count());
 	}
 }

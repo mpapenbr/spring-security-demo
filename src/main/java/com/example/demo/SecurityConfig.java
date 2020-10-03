@@ -14,7 +14,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.provisioning.UserDetailsManager;
 
 import com.example.demo.model.DemoUsers;
 
@@ -29,22 +28,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new DemoUsers();
 	}
 
-	//	@Autowired
-	//	private UserDetailsService customUserDetailsService;
-
 	@Bean
 	public UserDetailsService users() {
-
 		Collection<UserDetails> users = demoUsers().getUsers().stream().map(u -> UserPrincipal.create(u)).collect(Collectors.toList());
-
 		return new InMemoryUserDetailsManager(users);
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		UserDetailsManager uds = auth.inMemoryAuthentication().getUserDetailsService();
-		// System.out.println("SecurityConfig.configure()" + uds);
+
 		auth.userDetailsService(users());
+
 	}
 
 	@Override
@@ -53,7 +47,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 				.authorizeRequests(ar -> ar.antMatchers("/private/**").authenticated()
 						.antMatchers("/public/**").permitAll())
-				.httpBasic();
+				.httpBasic(conf -> {
+				})
+				.rememberMe(conf -> {
+				});
 		// @formatter:on
 
 	}

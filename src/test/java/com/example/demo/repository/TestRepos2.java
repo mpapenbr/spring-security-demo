@@ -14,7 +14,7 @@ import com.example.demo.model.User;
 		"spring.jpa.hibernate.ddl-auto=validate",
 		"spring.liquibase.enabled=true"
 })
-public class TestRepos {
+public class TestRepos2 {
 
 	@Autowired
 	private UserRepository userRepo;

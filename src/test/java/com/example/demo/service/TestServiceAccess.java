@@ -46,7 +46,7 @@ public class TestServiceAccess {
 	@WithMockUser
 	@Test
 	void testProtectedWithSomeMockUser() throws Exception {
-		assertEquals("protected", someService.getProtectedMessage());
+		assertEquals("protected user", someService.getProtectedMessage());
 	}
 
 	/*

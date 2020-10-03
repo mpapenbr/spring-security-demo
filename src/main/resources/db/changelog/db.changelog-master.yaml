@@ -8,7 +8,7 @@ databaseChangeLog:
     author: mpapenbr
     changes:
     - createTable:
-        tableName: db_user
+        tableName: user
         columns:
         - column:
             name: id
@@ -31,10 +31,12 @@ databaseChangeLog:
             name: email
             type: varchar(50)
             constraints:
-              nullable: false
+              nullable: true
 - changeSet:
     id: 2
     author: mpapenbr
     changes:
     - createSequence:
-        sequenceName: hibernate_sequence        
+        sequenceName: hibernate_sequence   
+        startValue: 1000 # see README.md for reasons
+             
