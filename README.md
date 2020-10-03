@@ -12,9 +12,9 @@ About the test-packages:
 # Order of development
 Here the order of branches used during development
 - startbase
-- service-security
+- step 1
   just focus on testing the (method-) security 
-- repository-service-security
+- step 2   
   adding users and/or other repository entities to be used in this context.
 
 # Goals for repository-service-security
