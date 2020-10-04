@@ -12,12 +12,13 @@ About the test-packages:
 # Order of development
 Here the order of branches used during development
 - startbase
-- step 1
+- step 1  
   just focus on testing the (method-) security 
 - step 2   
   adding users and/or other repository entities to be used in this context.
 
-# Goals for repository-service-security
+
+# Goals for step  2
 
 ## Combine different user sources (read from yaml and read from db)
 **Notes**: 
@@ -33,7 +34,11 @@ Since we're using h2 with in-memory-mode in this environment there are some test
 
 Every test, when run standalone, has to initialize the schema. So far no problem since Spring-Liquibase integration can take care of this. 
 
-#### Proper initialization and cleanup
+**Side note:** This will be done every time spring creates a new application context. `TestRepos` and `TestRepos2` share the same application context configuration. Spring caches the contextes used during testing and thats why we may see less Spring initialization blocks in the logs than the number of tests.
+
+For non-test-only environments this could be a problem since there is really not much work to do. In bigger enviroments this may be a problem. 
+
+### Proper initialization and cleanup
 
 By default for each test a rollback is issued at the end of a test. So we don't need to think about data that may be created during a test.
 
